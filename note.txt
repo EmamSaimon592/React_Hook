@@ -1,0 +1,6 @@
+// syntx:
+useEffect(()={
+   console.log("");
+},[]);
+
+// useEffect(()=>{}, []);

@@ -1,33 +1,39 @@
-    body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center; /* Center vertically */
-      align-items: center; /* Center horizontally */
-      height: 100vh;
-      margin: 0;
-      background-color: #7fffd4; /* Light aqua background */
-      font-family: Arial, sans-serif;
-    }
+/* সাধারণ স্টাইল */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
 
-    h1 {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 20px;
-      color: #000;
-      text-align: center;
-    }
+.app {
+  text-align: center;
+  padding: 100px 20px;
+}
 
-    button {
-      background-color: #007bff;
-      color: white;
-      border: none;
-      padding: 10px 25px;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
+/* লাইট থিম */
+body.light {
+  background-color: #ffffff;
+  color: #000000;
+}
 
-    button:hover {
-      background-color: #0056b3;
-    }
+/* ডার্ক থিম */
+body.dark {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+/* বাটন স্টাইল */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

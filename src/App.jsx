@@ -1,20 +1,38 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
-import { useState } from 'react';
 
-const App = () => {
-  const [color, setColor] = useState('green');
- 
-  const changeColor = () => {
-    setColor('Green')
+function App() {
+  //  state তৈরি
+  const [theme, setTheme] = useState('light');
+
+  //  প্রথমে চেক করবো আগের থিম LocalStorage এ আছে কিনা
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setTheme(savedTheme);
+      document.body.className = savedTheme;
+    }
+  }, []);
+
+  //  থিম পরিবর্তনের ফাংশন
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    document.body.className = newTheme;
+    localStorage.setItem('theme', newTheme); // LocalStorage এ সেভ
   };
 
   return (
-    <div>
-      <h1>My favourite Color is {color}</h1>
-      <button onClick={changeColor}>Blue</button>
+    <div className="app">
+      <h1> React Theme Toggle App</h1>
+      <p>
+        Current Theme: <strong>{theme.toUpperCase()}</strong>
+      </p>
+      <button onClick={toggleTheme}>
+        Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode
+      </button>
     </div>
   );
-};
+}
 
 export default App;
